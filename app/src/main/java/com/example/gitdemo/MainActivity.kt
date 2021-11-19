@@ -13,10 +13,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val button = findViewById<Button>(R.id.buttonAdd)
+        val buttonSub = findViewById<Button>(R.id.buttonSub)
         val textView = findViewById<TextView>(R.id.textView)
         textView.text = "$number"
         button.setOnClickListener {
             textView.text = "${number++}"
+        }
+        buttonSub.setOnClickListener {
+            textView.text = "${number--}"
         }
     }
 }
