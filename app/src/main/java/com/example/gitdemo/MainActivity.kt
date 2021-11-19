@@ -16,17 +16,25 @@ class MainActivity : AppCompatActivity() {
         val button = findViewById<Button>(R.id.buttonAdd)
         val buttonSub = findViewById<Button>(R.id.buttonSub)
         val textView = findViewById<TextView>(R.id.textView)
+
+        number = savedInstanceState?.getInt("NUMBER") ?: 0
+
         textView.text = "$number"
         button.setOnClickListener {
-            textView.text = "${number++}"
+            textView.text = "${++number}"
         }
         buttonSub.setOnClickListener {
-            textView.text = "${number--}"
+            textView.text = "${--number}"
         }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu,menu)
         return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt("NUMBER",number)
     }
 }
