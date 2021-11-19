@@ -10,14 +10,17 @@ import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
     private var number = 0
+    private lateinit var button: Button
+    private lateinit var buttonSub:Button
+    private lateinit var textView: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val button = findViewById<Button>(R.id.buttonAdd)
-        val buttonSub = findViewById<Button>(R.id.buttonSub)
-        val textView = findViewById<TextView>(R.id.textView)
-
+        button = findViewById(R.id.buttonAdd)
+        buttonSub = findViewById(R.id.buttonSub)
+        textView = findViewById(R.id.textView)
         number = savedInstanceState?.getInt("NUMBER") ?: 0
 
         textView.text = "$number"
